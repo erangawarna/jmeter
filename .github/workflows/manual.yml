@@ -1,0 +1,38 @@
+name: Run Every 5 Minutes for 10 Times
+
+on:
+  schedule:
+    - cron: '*/3 * * * *'
+
+jobs:
+  runJob:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Run Job
+      run: |
+        echo "Executing job..."
+        # Your job steps go here
+
+  checkRunCount:
+    needs: runJob
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check Run Count
+      id: checkRunCount
+      run: echo "::set-output name=runCount::${{ github.run_number }}"
+
+  triggerNextRun:
+    needs: checkRunCount
+    if: ${{ steps.checkRunCount.outputs.runCount < 7 }}
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Trigger Next Run
+      run: |
+        echo "Triggering the next run..."
+        # Additional steps for the next run
