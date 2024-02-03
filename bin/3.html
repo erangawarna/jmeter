@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Click here to login to Actionstep..." >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+    <link href="/frontend/default/less/compile?file=%2Fstatic%2Ffrontend%2Fapplication%2Flayout%2Fv2%2Fas-main.less&amp;mod=1541386998" media="screen, print" rel="stylesheet" type="text/css" >
+    <link href="/frontend/default/less/compile?file=%2Fstatic%2Ffrontend%2Fapplication%2Flayout%2FLayout-Login.less&amp;mod=1541386998" media="screen, print" rel="stylesheet" type="text/css" >
+    <link href="/frontend/default/less/compile?file=%2Fstatic%2Ffrontend%2Flibrary%2FjQuery%2Fjquery-ui.less&amp;mod=1541386998" media="screen, print" rel="stylesheet" type="text/css" >
+    
+    <script type="text/javascript" src="/static/frontend/library/jQuery/jquery.js?mod=1541386998"></script>
+    <script type="text/javascript" src="/static/frontend/library/jQuery/jquery-ui.js?mod=1541386998"></script>
+    <script type="text/javascript" src="/static/frontend/application/layout/Layout.js?mod=1541386998"></script>
+    <script type="text/javascript" src="/static/frontend/application/layout/Form.js?mod=1541386998"></script>
+    <script type="text/javascript" src="/static/frontend/application/modules/application/auth/Login.js?mod=1573174543"></script>
+    <script type="text/javascript" src="/static/frontend/library/jQuery/plugins/jquery.cookie.js?mod=1541386998"></script>
+    <script type="text/javascript" src="/static/frontend/library/ActionStep/BrowserTests.js?mod=1541386998"></script>
+    <script type="text/javascript" src="/static/frontend/application/modules/application/auth/Dev.js?mod=1541386998"></script>
+    <link href="/static/frontend/application/layout/favicon.ico?v=2" rel="shortcut icon" type="image/x-icon">
+    <link href="/static/frontend/application/layout/v2/less/print.css" rel="stylesheet" type="text/css" media="print">
+    <script>
+        var WWW_FOLDER = '/frontend/';
+    </script>
+</head><body>
+<div class="js-browser-warning cs-browser-warning" style="display: none;"><ul></ul></div>
+ <div class="cs-page-wrapper">
+    <div class="cs-page-wrapper-inner">
+        <div class="cs-left-col">
+                            <a href="/frontend/application/auth/mso-sso?redirect=%2Fapi%2Foauth%2Fauthorize&amp;mode=oauth2&amp;prompt=login" class="cs-big-logo">Actionstep</a>
+                        </div>
+        <div class="cs-right-col">
+            <div id="LoginForm" class="cs-login-page js-no-unload-prompt">
+
+
+	    <form class="as-form" enctype="application/x-www-form-urlencoded" autocomplete="off" action="" method="post"><div class="cs-form-wrapper">
+<fieldset id="fieldset-DevelopmentGroup" class="as-form-group cs-form-group--DevelopmentGroup">
+<div class="as-field as-field--select cs-field--dev_branch"><label for="dev_branch" class="optional">(Application Branch)</label>
+
+<select name="dev_branch" id="dev_branch" class="as-12">
+    <option value="T17550-20999-3" label="T17550-20999-3 (/home/websites/actionstep/tags/T17550-20999-3)">T17550-20999-3 (/home/websites/actionstep/tags/T17550-20999-3)</option>
+    <option value="bugs-06nov2019" label="bugs-06nov2019 (/home/websites/actionstep/tags/bugs-06nov2019)">bugs-06nov2019 (/home/websites/actionstep/tags/bugs-06nov2019)</option>
+    <option value="bugs-13nov2019" label="bugs-13nov2019 (/home/websites/actionstep/tags/bugs-13nov2019)">bugs-13nov2019 (/home/websites/actionstep/tags/bugs-13nov2019)</option>
+    <option value="bugs-20nov2019" label="bugs-20nov2019 (/home/websites/actionstep/tags/bugs-20nov2019)">bugs-20nov2019 (/home/websites/actionstep/tags/bugs-20nov2019)</option>
+    <option value="bugs-27nov2019" label="bugs-27nov2019 (/home/websites/actionstep/tags/bugs-27nov2019)">bugs-27nov2019 (/home/websites/actionstep/tags/bugs-27nov2019)</option>
+    <option value="ea" label="ea (/home/websites/actionstep/tags/ea)">ea (/home/websites/actionstep/tags/ea)</option>
+    <option value="express" label="express (/home/websites/actionstep/tags/express)">express (/home/websites/actionstep/tags/express)</option>
+    <option value="feature-netdocs" label="feature-netdocs (/home/websites/actionstep/tags/feature-netdocs)">feature-netdocs (/home/websites/actionstep/tags/feature-netdocs)</option>
+    <option value="legacy-application" label="legacy-application (/home/websites/actionstep/tags/legacy-application)" selected="selected">legacy-application (/home/websites/actionstep/tags/legacy-application)</option>
+    <option value="mono" label="mono (/home/websites/actionstep/tags/mono)">mono (/home/websites/actionstep/tags/mono)</option>
+    <option value="office-api-v2" label="office-api-v2 (/home/websites/actionstep/tags/office-api-v2)">office-api-v2 (/home/websites/actionstep/tags/office-api-v2)</option>
+</select></div>
+
+<div class="as-field as-field--select cs-field--fe_tag"><label for="fe_tag" class="optional">(Frontend Branch)</label>
+
+<select name="fe_tag" id="fe_tag" class="as-12">
+    <option value="frontend" label="frontend (/home/websites/actionstep/tags/frontend)" selected="selected">frontend (/home/websites/actionstep/tags/frontend)</option>
+</select></div>
+</fieldset>
+<fieldset id="fieldset-LoginGroup" class="as-form-group as-form-group--stacked mtn cs-form-group--LoginGroup">
+<div class="as-field as-field--email as-field--required cs-field--email_address"><label for="email_address" class="required">Email</label>
+
+<input type="email" name="email_address" id="email_address" value="" type="email" autocomplete="off"></div>
+
+<div class="as-field as-field--password as-field--required cs-field--password"><label for="password" class="required">Password</label>
+
+<input type="password" name="password" id="password" value="" autocomplete="off" class="mbn"></div>
+
+
+<div class="cs-forgot-password">
+
+<a href="/frontend/application/auth/password-reset-request">Forgotten password?</a>
+
+</div></fieldset>
+<fieldset id="fieldset-ControlGroup" class="as-form-group as-form-group--controls cs-form-group--ControlGroup">
+
+<input type="submit" name="submitButton" id="submitButton" value="Log in" class="as-button as-button--primary as-button--large as-button--fill"></fieldset></div></form>
+
+</div>
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
