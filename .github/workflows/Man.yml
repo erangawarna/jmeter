@@ -1,0 +1,23 @@
+name: Run Five Times After Manual Trigger
+
+on:
+  workflow_run:
+    workflows: ["manual-trigger-workflow"]
+    types:
+      - completed
+
+jobs:
+  run-five-times:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        run-index: [1, 2, 3, 4, 5]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Run your job
+        run: |
+          echo "Running job for the ${{ matrix.run-index }} time"
