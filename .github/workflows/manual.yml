@@ -1,43 +1,24 @@
-name: Run Every 10 Minutes 5 Times
+name: Run Every 10 Minutes for 1 Hour
 
 on:
-  workflow_dispatch:
-  schedule:
-    - cron: '*/10 * * * *'
   workflow_run:
-    workflows: ["manual-trigger"]
+    workflows: ["Manual Trigger Workflow"]
     types:
       - completed
 
 jobs:
-  runJob:
+  your_job_name:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2
 
-    - name: Run Job
-      run: |
-        echo "Executing job..."
-        # Your job steps go here
+      - name: Calculate Elapsed Time
+        id: calculate_elapsed_time
+        run: echo "::set-output name=time::$(date +%s)"
 
-  checkRunCount:
-    needs: runJob
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Check Run Count
-      id: checkRunCount
-      run: echo "::set-output name=runCount::${{ github.event.workflow_run.conclusion == 'success' && github.run_number <= 5 }}"
-
-  triggerNextRun:
-    needs: checkRunCount
-    if: ${{ steps.checkRunCount.outputs.runCount == 'true' }}
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Trigger Next Run
-      run: |
-        echo "Triggering the next run..."
-        # Additional steps for the next run
+      - name: Run Job Every 10 Minutes for 1 Hour
+        if: ${{ (github.event.workflow_run.conclusion == 'success') && (steps.calculate_elapsed_time.outputs.time | int < github.event.workflow_run.created_at | int + 3600) }}
+        run: |
+          # Add your job steps here
