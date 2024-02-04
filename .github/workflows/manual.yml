@@ -1,7 +1,7 @@
 name: Run Every 10 Minutes for 1 Hour
 
 on:
-  workflow_run:
+  workflow_dispatch:
     workflows: ["Manual Trigger Workflow"]
     types:
       - completed
