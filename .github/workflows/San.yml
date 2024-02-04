@@ -1,0 +1,38 @@
+name: Scheduled Workflow
+ 
+on:
+  schedule:
+    - cron: '*/10 * * * *' # Run every 10 minutes
+ 
+  workflow_dispatch:
+    inputs:
+      max_runs:
+        description: 'Maximum number of runs'
+        required: true
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+ 
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+ 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+ 
+      - name: Run the script
+        run: |
+          # Your script or commands here
+ 
+      - name: Check run count
+        run: |
+          echo "Current run number: ${{ github.run_number }}"
+          echo "Maximum allowed runs: ${{ inputs.max_runs }}"
+ 
+          if [ "${{ github.run_number }}" -ge "${{ inputs.max_runs }}" ]; then
+            echo "Reached maximum allowed runs. Exiting..."
+            exit 0
+          fi
