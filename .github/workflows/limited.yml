@@ -24,7 +24,7 @@ jobs:
 
     steps:
       - name: Check if limit is exceeded
-        run: echo "Counter $((counter + 1))" >> 5
+        run: echo "Counter $((counter + 1))" >> 2
         id: counter-check
 
       - name: Checkout code
@@ -36,7 +36,7 @@ jobs:
 
       - name: Set output counter
         if: ${{ steps.counter-check.outputs.counter < 5 }}
-        run: echo "counter=${{ steps.counter-check.outputs.counter }}" >> 5
+        run: echo "counter=${{ steps.counter-check.outputs.counter }}" >> 3
 
   stop-if-exceeded:
     runs-on: ubuntu-latest
