@@ -34,6 +34,7 @@ jobs:
           current_time=$(date +%s)
           start_time=${{ steps.set_start_time.outputs.start_time }}
           elapsed_time=$((current_time - start_time))
+          echo ${current_time}
           
           if [ $elapsed_time -lt 3600 ]; then
             echo "Continue running the job"
