@@ -13,6 +13,8 @@ on:
         required: true
         # The data type of the input
         type: string
+  schedule:
+    - cron: '*/5 * * * *'
 
 jobs:
   run_every_10_minutes:
