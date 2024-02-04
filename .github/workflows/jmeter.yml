@@ -36,6 +36,6 @@ jobs:
       run: echo "::set-output name=time::$(date +%s)"
 
     - name: Run Job Every 10 Minutes for 1 Hour
-      if: ${{ (github.event.workflow_run.conclusion == 'success') && (steps.calculate_elapsed_time.outputs.time | int < github.event.workflow_run.created_at | int + 3600) }}
+      if: ${{ (github.event.workflow_run.conclusion == 'success') && (steps.calculate_elapsed_time.outputs.time < github.event.workflow_run.created_at + 3600) }}
       run: |
         # Add your job steps here
