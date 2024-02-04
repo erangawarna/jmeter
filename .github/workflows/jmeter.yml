@@ -14,7 +14,7 @@ on:
         # The data type of the input
         type: string
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/10 * * * *'
 
 jobs:
   run_every_10_minutes:
